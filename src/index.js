@@ -7,14 +7,17 @@ import reducer from './reducers/reducer'
 import App from './containers/App'
 
 const initialState = {
-
+  isAuthenticated: false
 }
 
 const store = createStore(reducer, initialState)
 const {getState, dispatch, subscribe} = store
 
 subscribe(() => {
-  render(<App />, document.getElementById('app'))
+  render(
+    <App state={getState()} dispatch={dispatch} />,
+     document.getElementById('app')
+  )
 })
 
 dispatch({type: 'INIT'})

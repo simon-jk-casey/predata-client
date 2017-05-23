@@ -5,6 +5,8 @@ function reducer (state, action) {
   switch (action.type) {
     case 'INIT':
       return newState
+    default:
+      return newState
   }
 }
 
